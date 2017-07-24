@@ -5,10 +5,18 @@
  */
 package ucab.seguridad.modelo;
 
+import java.net.Socket;
+import javax.net.ssl.SSLSocketFactory;
+
 /**
  *
  * @author marvian
  */
 public class Conexion {
     
+   
+SSLSocketFactory clientFactory = (SSLSocketFactory) 
+SSLSocketFactory.getDefault();
+Socket client = clientFactory.createSocket(server, port);
+   
 }

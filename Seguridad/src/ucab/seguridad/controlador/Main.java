@@ -17,8 +17,16 @@ import ucab.seguridad.controlador.*;
  */
 public class Main {
 	
+    
+    
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+                
+               System.setProperty("javax.net.ssl.keyStore", "/CosasKeytool/clientKey.jks");
+               System.setProperty("javax.net.ssl.keyStorePassword","clientpass");
+               System.setProperty("javax.net.ssl.trustStore", "/CosasKeytool/clientTrustedCerts.jks");
+               System.setProperty("javax.net.ssl.trustStorePassword", "clientpass");
+ 
 
 		try {
 			   UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
