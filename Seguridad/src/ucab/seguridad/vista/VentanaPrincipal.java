@@ -54,7 +54,7 @@ public class VentanaPrincipal extends JFrame {
 			JLabel lblNombre = new JLabel("Nombre");
 			lblNombre.setSize(50, 25);
 			lblNombre.setLocation(76, 25);
-			lblNombre.setBounds(76, 25, 50, 25);
+			lblNombre.setBounds(70, 25, 75, 25);
 			contentPanel.add(lblNombre);
 			
 			txtContrasena = new JTextField();
@@ -63,7 +63,7 @@ public class VentanaPrincipal extends JFrame {
 			txtContrasena.setColumns(8);
 			
 			JLabel lblContrasena = new JLabel("Contraseña");
-			lblContrasena.setBounds(76, 60, 75, 25);
+			lblContrasena.setBounds(70, 60, 85, 25);
 			contentPanel.add(lblContrasena);
 			
 			btnInscribirse = new JButton("Inscribirse");

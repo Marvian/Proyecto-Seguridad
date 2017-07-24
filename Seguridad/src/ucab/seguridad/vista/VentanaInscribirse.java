@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import ucab.seguridad.controlador.*;
+import ucab.seguridad.modelo.*;
 
 /**
  *
@@ -31,6 +32,7 @@ public class VentanaInscribirse extends JFrame {
 	private JLabel lblNombre;
 	private JLabel lblCorreo;
 	private JLabel Contrasena;	
+        public JLabel lblCaptcha;
 	public JMenuBar menuBar;		
 	public JButton btnAceptar;
 	public JButton btnCancelar;
@@ -52,7 +54,7 @@ public class VentanaInscribirse extends JFrame {
 		
 		
 		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(76, 25, 50, 25);
+		lblNombre.setBounds(70, 25, 75, 25);
 		contentPanel.add(lblNombre);
 		
 		txtNombre = new JTextField();
@@ -64,7 +66,7 @@ public class VentanaInscribirse extends JFrame {
 		JLabel lblCorreo = new JLabel("Correo");
 		lblCorreo.setSize(50, 25);
 		lblCorreo.setLocation(76, 60);
-		lblCorreo.setBounds(76, 60, 50, 25);
+		lblCorreo.setBounds(70, 60, 50, 25);
 		contentPanel.add(lblCorreo);
 		
 		txtCorreo = new JTextField();
@@ -73,13 +75,19 @@ public class VentanaInscribirse extends JFrame {
 		txtCorreo.setColumns(8);
 		
 		JLabel lblContrasena = new JLabel("Contraseña");
-		lblContrasena.setBounds(76, 95, 75, 25);
+		lblContrasena.setBounds(70, 95, 85, 25);
 		contentPanel.add(lblContrasena);
 		
 		txtContrasena = new JTextField();
 		txtContrasena.setBounds(210, 95, 150, 30);
 		contentPanel.add(txtContrasena);
 		txtContrasena.setColumns(8);
+                
+                
+                lblCaptcha = new JLabel("");                
+                lblCaptcha.setText(ucab.seguridad.modelo.Contrasena.Captcha());
+		lblCaptcha.setBounds(70, 140, 75, 25);
+		contentPanel.add(lblCaptcha);
 		
 		txtCaptcha = new JTextField();
 		txtCaptcha.setBounds(210, 140, 150, 30);
@@ -105,6 +113,7 @@ public class VentanaInscribirse extends JFrame {
 		txtCorreo.addActionListener(c);
 		txtCaptcha.addActionListener(c);
 		txtContrasena.addActionListener(c);
+                
  
 	}
 

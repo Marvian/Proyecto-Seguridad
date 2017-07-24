@@ -8,6 +8,7 @@ package ucab.seguridad.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 import ucab.seguridad.controlador.*;
 import ucab.seguridad.vista.*;
@@ -39,11 +40,17 @@ public class ControladorVentanaInscribirse implements ActionListener   {
 		if(e.getSource() == ventanaInscribirse.btnAceptar){
 			
 			if (Contrasena.ValidarContrasena(ventanaInscribirse.txtContrasena.getText()) == true){
+                             String captcha = ventanaInscribirse.lblCaptcha.getText();
+                             String captchaUsuario = ventanaInscribirse.txtCaptcha.getText();        
+                            if(captcha.equals(captchaUsuario)){
 				ventanaCertificado = new VentanaCertificado();
 				ventanaCertificado.mostrarVentana();
 				controladorVentanaCertificado = new ControladorVentanaCertificado(ventanaCertificado);
 				ventanaCertificado.setControlador(controladorVentanaCertificado);
 				ventanaInscribirse.dispose();
+                            }
+                            
+                            else JOptionPane.showMessageDialog(null,"Captcha equivocado!");
 			}
 		}
 		
