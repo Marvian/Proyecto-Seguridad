@@ -25,7 +25,7 @@ public class VentanaPrincipal extends JFrame {
 	
 		public JPanel contentPanel;
 		public JMenuBar menuBar;	
-		private JTextField txtNombre;
+		public JTextField txtNombre;
 		public JTextField txtContrasena;
 		private JLabel lblNombre;
 		private JLabel lblContrasena;

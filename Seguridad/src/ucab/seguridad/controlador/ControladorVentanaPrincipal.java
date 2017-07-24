@@ -57,6 +57,7 @@ public class ControladorVentanaPrincipal implements ActionListener {
 			controladorVentanaCertificado = new ControladorVentanaCertificado(ventanaCertificado);
                         // Esto es un ejemplo para ver si el json se escribe.
                         Usuario user = new Usuario();
+                        user.setUsuario(ventanaPrincipal.txtNombre.getText());
                         user.setCantidadIngresos(1);
                         user.setContrasena(ventanaPrincipal.txtContrasena.getText());
                         user.setDireccionIP("192.168.1.1");
@@ -70,7 +71,7 @@ public class ControladorVentanaPrincipal implements ActionListener {
                         } catch (IOException ex) {
                             Logger.getLogger(ControladorVentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
                         }
-                        System.out.println("Primer Dato:" + listaUsuarios.get(0).getCantidadIngresos());
+                        System.out.println("Primer Dato:" + listaUsuarios.get(0).getUsuario());
 			ventanaCertificado.setControlador(controladorVentanaCertificado);
 			ventanaPrincipal.dispose();
 		
