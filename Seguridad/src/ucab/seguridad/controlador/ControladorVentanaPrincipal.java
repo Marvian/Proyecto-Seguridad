@@ -51,7 +51,10 @@ public class ControladorVentanaPrincipal implements ActionListener {
 		}
 		
 		if(e.getSource() == ventanaPrincipal.btnEntrar){
-			
+                    String captcha = ventanaPrincipal.lblCaptcha.getText();
+                    String captchaUsuario = ventanaPrincipal.txtCaptcha.getText();
+                    // if(captcha.equals(captchaUsuario)){
+                    
 			ventanaCertificado = new VentanaCertificado();
 			ventanaCertificado.mostrarVentana();
 			controladorVentanaCertificado = new ControladorVentanaCertificado(ventanaCertificado);
@@ -74,6 +77,8 @@ public class ControladorVentanaPrincipal implements ActionListener {
                         System.out.println("Primer Dato:" + listaUsuarios.get(0).getUsuario());
 			ventanaCertificado.setControlador(controladorVentanaCertificado);
 			ventanaPrincipal.dispose();
+                        
+                    //}
 		
 		}
 	

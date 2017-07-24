@@ -27,8 +27,10 @@ public class VentanaPrincipal extends JFrame {
 		public JMenuBar menuBar;	
 		public JTextField txtNombre;
 		public JTextField txtContrasena;
+                public JTextField txtCaptcha;
 		private JLabel lblNombre;
 		private JLabel lblContrasena;
+                public JLabel lblCaptcha;
 		public JButton btnInscribirse;
 		public JButton btnEntrar;
 		
@@ -65,13 +67,25 @@ public class VentanaPrincipal extends JFrame {
 			JLabel lblContrasena = new JLabel("Contraseña");
 			lblContrasena.setBounds(70, 60, 85, 25);
 			contentPanel.add(lblContrasena);
+                        
+                        lblCaptcha = new JLabel("");                
+                        lblCaptcha.setText(ucab.seguridad.modelo.Contrasena.Captcha());
+                        lblCaptcha.setBounds(70, 95, 75, 25);
+                        contentPanel.add(lblCaptcha);
+
+                        txtCaptcha = new JTextField();
+                        txtCaptcha.setBounds(210, 95, 150, 30);
+                        contentPanel.add(txtCaptcha);
+                        txtCaptcha.setColumns(10);
+                        
+                        
 			
 			btnInscribirse = new JButton("Inscribirse");
-			btnInscribirse.setBounds(235, 135, 110, 25);
+			btnInscribirse.setBounds(235, 155, 110, 25);
 			contentPanel.add(btnInscribirse);
 			
 			btnEntrar = new JButton("Entrar");
-			btnEntrar.setBounds(75, 135, 110, 25);
+			btnEntrar.setBounds(75, 155, 110, 25);
 			contentPanel.add(btnEntrar);
 		
 	}
@@ -82,6 +96,7 @@ public class VentanaPrincipal extends JFrame {
 		btnEntrar.addActionListener(c);
 		txtNombre.addActionListener(c);
 		txtContrasena.addActionListener(c);
+                txtCaptcha.addActionListener(c);
 	 
 	}
 	
