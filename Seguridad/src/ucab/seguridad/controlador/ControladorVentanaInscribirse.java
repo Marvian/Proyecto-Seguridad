@@ -8,6 +8,9 @@ package ucab.seguridad.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 import ucab.seguridad.controlador.*;
@@ -43,12 +46,31 @@ public class ControladorVentanaInscribirse implements ActionListener   {
                              String captcha = ventanaInscribirse.lblCaptcha.getText();
                              String captchaUsuario = ventanaInscribirse.txtCaptcha.getText();        
                             if(captcha.equals(captchaUsuario)){
-				ventanaCertificado = new VentanaCertificado();
-				ventanaCertificado.mostrarVentana();
-				controladorVentanaCertificado = new ControladorVentanaCertificado(ventanaCertificado);
-				ventanaCertificado.setControlador(controladorVentanaCertificado);
-				ventanaInscribirse.dispose();
-                            }
+                                String contrasena = null;
+                                 try {
+                                     contrasena = Contrasena.calcularhash(ventanaInscribirse.txtContrasena.getText());
+                                 } catch (NoSuchAlgorithmException ex) {
+                                     Logger.getLogger(ControladorVentanaInscribirse.class.getName()).log(Level.SEVERE, null, ex);
+                                 }
+                                Usuario usuario = new Usuario(ventanaInscribirse.txtNombre.getText(), contrasena, null);
+				Mensaje mensaje = new Mensaje();
+                                mensaje.setOpcion(1);
+				mensaje.setUsuario(usuario); 
+                                if(Peticiones.peticionSimple(mensaje).equals("ok")){
+                                    JOptionPane.showMessageDialog(null, "Felicidades!. Su usuario ha sido registrado correctamente.", "Correcto!", JOptionPane.INFORMATION_MESSAGE);
+                                    ventanaCertificado = new VentanaCertificado();
+                                    ventanaCertificado.mostrarVentana();
+                                    controladorVentanaCertificado = new ControladorVentanaCertificado(ventanaCertificado);
+                                    ventanaCertificado.setControlador(controladorVentanaCertificado);
+                                    ventanaInscribirse.dispose();
+                                }
+                                
+                                else{
+                                    
+                                    JOptionPane.showMessageDialog(null, "Lo sentimos, ya hay algun usuario con su mismo: correo, alias y/o contraseña", "Error!", JOptionPane.INFORMATION_MESSAGE);
+                            
+                                }
+                            }   
                             
                             else JOptionPane.showMessageDialog(null,"Captcha equivocado!");
 			}

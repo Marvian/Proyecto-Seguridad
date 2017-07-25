@@ -57,7 +57,7 @@ public class Contrasena {
 
         }
         
-        public String calcularhash (String contrasena) throws NoSuchAlgorithmException {
+        public static String calcularhash (String contrasena) throws NoSuchAlgorithmException {
             
             String hash = null;
             

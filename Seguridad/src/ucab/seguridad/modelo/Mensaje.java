@@ -17,14 +17,19 @@ public class Mensaje implements Serializable {
     private Certificado certificado;
     private int ipServidor;
     private int puertoEscucha;
+    private int opcion;
+    private int respuesta;
     
-    public Mensaje (Usuario usuario, Certificado certificado, int ipServidor, int puertoEscucha ){
+    public Mensaje (Usuario usuario, Certificado certificado, int ipServidor, 
+            int puertoEscucha, int opcion, int respuesta ){
     
         super();
         this.usuario = usuario;
         this.certificado = certificado;
         this.ipServidor = ipServidor;
         this.puertoEscucha = puertoEscucha;
+        this.opcion = opcion;
+        this.respuesta = respuesta;
     }
     
     public Mensaje(){
@@ -32,6 +37,8 @@ public class Mensaje implements Serializable {
         certificado = null;
         ipServidor = -1;
         puertoEscucha = -1;
+        opcion = -1;
+        respuesta = -1;
     }
 
     public Usuario getUsuario() {
@@ -65,6 +72,16 @@ public class Mensaje implements Serializable {
     public void setPuertoEscucha(int puertoEscucha) {
         this.puertoEscucha = puertoEscucha;
     }
+
+    public int getOpcion() {
+        return opcion;
+    }
+
+    public void setOpcion(int opcion) {
+        this.opcion = opcion;
+    }
+    
+    
     
     
     

@@ -9,13 +9,16 @@ package ucab.seguridad.controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import ucab.seguridad.modelo.Json;
 import ucab.seguridad.modelo.Usuario;
 
 import ucab.seguridad.vista.*;
+import ucab.seguridad.modelo.*;
 
 /**
  *
@@ -53,32 +56,32 @@ public class ControladorVentanaPrincipal implements ActionListener {
 		if(e.getSource() == ventanaPrincipal.btnEntrar){
                     String captcha = ventanaPrincipal.lblCaptcha.getText();
                     String captchaUsuario = ventanaPrincipal.txtCaptcha.getText();
-                    // if(captcha.equals(captchaUsuario)){
+                    if(captcha.equals(captchaUsuario)){
                     
-			ventanaCertificado = new VentanaCertificado();
-			ventanaCertificado.mostrarVentana();
-			controladorVentanaCertificado = new ControladorVentanaCertificado(ventanaCertificado);
-                        // Esto es un ejemplo para ver si el json se escribe.
-                        Usuario user = new Usuario();
-                        user.setUsuario(ventanaPrincipal.txtNombre.getText());
-                        user.setCantidadIngresos(1);
-                        user.setContrasena(ventanaPrincipal.txtContrasena.getText());
-                        user.setDireccionIP("192.168.1.1");
-                        ArrayList<Usuario> listaUsuarios = new ArrayList<>();
-                        listaUsuarios.add(user);
-                        Json.Escribir(listaUsuarios);
-                        //Esto es un ejemplo de su lectura.
-                        listaUsuarios.clear();
+                        String contrasena = null;
                         try {
-                            listaUsuarios = Json.Leer();
-                        } catch (IOException ex) {
-                            Logger.getLogger(ControladorVentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                             contrasena = Contrasena.calcularhash(ventanaInscribirse.txtContrasena.getText());
+                            } catch (NoSuchAlgorithmException ex) {
+                             Logger.getLogger(ControladorVentanaInscribirse.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        Usuario usuario = new Usuario(ventanaPrincipal.txtNombre.getText() , contrasena, null);
+			Mensaje mensaje = new Mensaje();
+			mensaje.setUsuario(usuario);
+			mensaje.setOpcion(2);
+			usuario = Peticiones.peticionUsuario(mensaje);
+			if(usuario.getUsuario().equals(ventanaPrincipal.txtNombre.getText())){
+				
+                            ventanaCertificado = new VentanaCertificado();
+                            ventanaCertificado.mostrarVentana();
+                            controladorVentanaCertificado = new ControladorVentanaCertificado(ventanaCertificado);
+                            ventanaCertificado.setControlador(controladorVentanaCertificado);
+                            ventanaPrincipal.dispose();
+                            
                         }
-                        System.out.println("Primer Dato:" + listaUsuarios.get(0).getUsuario());
-			ventanaCertificado.setControlador(controladorVentanaCertificado);
-			ventanaPrincipal.dispose();
                         
-                    //}
+                    }
+                    
+                    else JOptionPane.showMessageDialog(null,"Captcha equivocado!");
 		
 		}
 	
