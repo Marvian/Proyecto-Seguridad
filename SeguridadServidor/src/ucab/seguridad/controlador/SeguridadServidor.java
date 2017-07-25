@@ -20,10 +20,10 @@ public class SeguridadServidor {
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
         System.out.println("Servidor a la espera de peticiones");
-        System.setProperty("javax.net.ssl.keyStore", "CosasKeytool/serverKey.jks");
-        System.setProperty("javax.net.ssl.keyStorePassword","servpass");
-        System.setProperty("javax.net.ssl.trustStore", "CosasKeytool/serverTrustedCerts.jks");
-        System.setProperty("javax.net.ssl.trustStorePassword", "servpass");
+        System.setProperty("javax.net.ssl.keyStore", "CosasKeytool/AlmacenSRTust");
+        System.setProperty("javax.net.ssl.keyStorePassword","almacen");
+        System.setProperty("javax.net.ssl.trustStore", "CosasKeytool/AlmacenSR");
+        //System.setProperty("javax.net.ssl.trustStorePassword", "almacen");
         Conexion conexion = new Conexion(10999);
         
     }

@@ -8,6 +8,7 @@ package ucab.seguridad.modelo;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import javax.net.ssl.SSLServerSocket;
 import javax.net.ssl.SSLServerSocketFactory;
 
 /**
@@ -17,15 +18,19 @@ import javax.net.ssl.SSLServerSocketFactory;
 public class Conexion {
     private ServerSocket serverSocket;
     private Socket aClient;
+    private SSLServerSocket ss;
     public Conexion(int puerto) throws IOException{
         SSLServerSocketFactory serverFactory = (SSLServerSocketFactory) SSLServerSocketFactory.getDefault();
-        ServerSocket serverSocket = serverFactory.createServerSocket(puerto);
+        SSLServerSocket serverSocket = (SSLServerSocket) serverFactory.createServerSocket(puerto);
+        serverSocket.setNeedClientAuth(true);
         aClient = serverSocket.accept();
         System.out.println("cliente aceptado");
         start();
     }
     public void start() throws IOException {
-      Util.startServerWorking(serverSocket, aClient);
+      System.out.println("Metodo start");
+        Util.startServerWorking(serverSocket, aClient);
+      
     }
     
 }

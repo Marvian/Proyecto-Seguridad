@@ -22,10 +22,12 @@ public class Util {
       new Thread() {
          public void run() {
             try {
-               
+               System.out.println("Metodo run1");
                BufferedReader input = new BufferedReader(new InputStreamReader(
                      aClient.getInputStream()));
+               System.out.println("Metodo run2");
                String recibido = input.readLine();
+               System.out.println("Metodo run3");
                System.out.println("Recibido " + recibido);
                PrintWriter output = new PrintWriter(aClient.getOutputStream());
                output.println("Hello, " + recibido);
