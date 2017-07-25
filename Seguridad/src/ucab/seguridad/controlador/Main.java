@@ -24,10 +24,11 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
                 
-               System.setProperty("javax.net.ssl.keyStore", "CosasKeytool/AlmacenCL");
-               System.setProperty("javax.net.ssl.keyStorePassword","almacen");
-               System.setProperty("javax.net.ssl.trustStore", "CosasKeytool/AlmacenCLTrust");
-               //System.setProperty("javax.net.ssl.trustStorePassword", "almacen");
+               //System.setProperty("javax.net.ssl.keyStore", "CosasKeytool/AlmacenCL");
+               //System.setProperty("javax.net.ssl.keyStorePassword","almacen");
+               System.setProperty("javax.net.ssl.trustStore", "CosasKeytool/cacerts.jks");
+               System.setProperty("javax.net.ssl.trustStorePassword", "123456");
+               
                Conexion conex = new Conexion("localhost" , 10999);
 
 		try {

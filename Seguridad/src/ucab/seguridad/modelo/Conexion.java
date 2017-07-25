@@ -7,6 +7,7 @@ package ucab.seguridad.modelo;
 
 import java.io.IOException;
 import java.net.Socket;
+import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 
 /**
@@ -14,14 +15,14 @@ import javax.net.ssl.SSLSocketFactory;
  * @author marvian
  */
 public class Conexion {
-    Socket client = null;
+    private SSLSocket sslSocket;
     public Conexion(String server, int port) throws IOException{
         SSLSocketFactory clientFactory = (SSLSocketFactory) SSLSocketFactory
             .getDefault();
-        client = clientFactory.createSocket(server, port);
+        sslSocket = (SSLSocket) clientFactory.createSocket(server, port);
         start();
     }
     public void start(){
-        Util.startClientWorking(client);
+        Util.startClientWorking(sslSocket);
     }
 }

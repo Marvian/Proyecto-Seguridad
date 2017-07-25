@@ -22,7 +22,7 @@ public class Conexion {
     public Conexion(int puerto) throws IOException{
         SSLServerSocketFactory serverFactory = (SSLServerSocketFactory) SSLServerSocketFactory.getDefault();
         SSLServerSocket serverSocket = (SSLServerSocket) serverFactory.createServerSocket(puerto);
-        serverSocket.setNeedClientAuth(true);
+        serverSocket.setNeedClientAuth(false);
         aClient = serverSocket.accept();
         System.out.println("cliente aceptado");
         start();
