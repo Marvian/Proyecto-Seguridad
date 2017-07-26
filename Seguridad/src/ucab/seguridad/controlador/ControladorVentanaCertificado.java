@@ -15,8 +15,8 @@ import ucab.seguridad.modelo.*;
 
 
 /**
- *
- * @author Marvian
+ *Constructur que recibe la vista en la cual se va a desenvolver.
+ * @param VentanaCertificado
  */
 public class ControladorVentanaCertificado implements ActionListener {
 	
@@ -30,6 +30,9 @@ public class ControladorVentanaCertificado implements ActionListener {
 		
 	}
 
+        /**
+	 * Se manejan todas las acciones que puede realizar el cliente en esta vista.
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub

@@ -8,9 +8,11 @@ package ucab.seguridad.modelo;
 import java.io.Serializable;
 
 /**
- *
- * @author marvian
+ * Clase Certificado, con getter y setter para cada uno de sus atributos privados.
+ * En esta clase se maneja la información necesaria para genenerar el certificado
+ * al cliente 
  */
+
 public class Certificado implements Serializable {
     
     private String Pais;

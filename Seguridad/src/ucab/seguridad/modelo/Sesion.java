@@ -15,8 +15,7 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSocket;
 
 /**
- *
- * @author marvian
+ *Clase que se utilizara para ver las seciones del cliente (Aun no se utiliza)
  */
 public class Sesion {
     

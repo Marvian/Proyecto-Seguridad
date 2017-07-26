@@ -14,18 +14,16 @@ import ucab.seguridad.controlador.*;
 import ucab.seguridad.modelo.Conexion;
 
 /**
- *
- * @author Marvian
+ *Main del cliente
  */
 public class Main {
 	
     
-    
+       
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
                 
-               //System.setProperty("javax.net.ssl.keyStore", "CosasKeytool/AlmacenCL");
-               //System.setProperty("javax.net.ssl.keyStorePassword","almacen");
+             
                System.setProperty("javax.net.ssl.trustStore", "CosasKeytool/cacerts.jks");
                System.setProperty("javax.net.ssl.trustStorePassword", "123456");
                
@@ -43,6 +41,7 @@ public class Main {
 			  }
 			  catch (IllegalAccessException e) {
 			  }
+                
 		VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
 		ventanaPrincipal.mostrarVentana();
 		ControladorVentanaPrincipal controladorventanaPrincipal = new ControladorVentanaPrincipal(ventanaPrincipal);

@@ -14,11 +14,16 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Marvian
+ * Clase Contraseña, con getter y setter para cada uno de sus atributos privados.
  */
 public class Contrasena {
 	
-	
+	/**
+         * Este metodo valida que la contraseña ten 8 caracteres, por lo menos 
+         * una mayuscula y al menos un caracter espcial
+         * @param contrasena
+         * @return validado
+         */
 	public static boolean ValidarContrasena (String contrasena){
 		
 		boolean validado = false;
@@ -56,7 +61,13 @@ public class Contrasena {
 	
 
         }
-        
+        /**
+         * Este metodo permite calcular el hash a la contraseña para que no quede
+         * en claro. Codigo copiado de http://www.dbsnippets.com/2012/08/21/java-calcular-hash/
+         * @param contrasena
+         * @return hash
+         * @throws NoSuchAlgorithmException 
+         */
         public static String calcularhash (String contrasena) throws NoSuchAlgorithmException {
             
             String hash = null;
@@ -74,7 +85,12 @@ public class Contrasena {
 
           return hash;
         }
-        
+        /**
+         * Este metodo permite generar un String que sera colocado en las vistas
+         * para colocarlos en los label captcha de VentanaPrincipal 
+         * y VentanaInscribirse
+         * @return captcha
+         */
         public static String Captcha(){ 
             
             String captcha = null;

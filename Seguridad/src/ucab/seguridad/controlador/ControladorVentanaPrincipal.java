@@ -14,15 +14,14 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import ucab.seguridad.modelo.Json;
 import ucab.seguridad.modelo.Usuario;
 
 import ucab.seguridad.vista.*;
 import ucab.seguridad.modelo.*;
 
 /**
- *
- * @author Marvian
+ *Constructor que recibe la vista en la cual se va a devolver
+ * @param VentanaPrincial
  */
 public class ControladorVentanaPrincipal implements ActionListener {
 	
@@ -39,6 +38,9 @@ public class ControladorVentanaPrincipal implements ActionListener {
 		
 	}
 	
+        /**
+	 * Se manejan todas las acciones que puede realizar el cliente en esta vista.
+	 */        
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		

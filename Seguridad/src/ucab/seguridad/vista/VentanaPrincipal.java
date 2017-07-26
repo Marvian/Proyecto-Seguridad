@@ -33,6 +33,11 @@ public class VentanaPrincipal extends JFrame {
                 public JLabel lblCaptcha;
 		public JButton btnInscribirse;
 		public JButton btnEntrar;
+                
+                /**
+                 * Se agrega el captcha al label con la funcion Captcha
+                 */
+                
 		
 		public VentanaPrincipal() {
 			

@@ -15,10 +15,17 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author marvian
+ * Clase Peticiones contienen los metodos para que el cliente pida al servidor 
+ * lo que necesita.
  */
 public class Peticiones {
     
+    /**
+     * Metodo utilizado para realizar el registro del cliente y sea guardado en
+     * un documento con sus respectivos atributos
+     * @param mensaje
+     * @return String
+     */
     public static String peticionSimple(Mensaje mensaje){
 		try{
 			
@@ -45,6 +52,11 @@ public class Peticiones {
 			}
 	}
     
+    /**
+     * Metodo para autenticar el usuario
+     * @param mensaje
+     * @return recibido
+     */
     public static Mensaje peticionUsuario(Mensaje mensaje){
 try{
 			                 System.out.println("HOLIS, ANTES DE HACER LA PETICION");
@@ -88,6 +100,13 @@ try{
 				return null;
 			}
 	}
+    
+    /**
+     * Metodo para pedir al servidor el certificado
+     * @param mensaje
+     * @return recibido
+     */
+    
     public static Mensaje peticionCertificado ( Mensaje mensaje ){
         try{
             SSLSocketFactory clientFactory = (SSLSocketFactory) SSLSocketFactory

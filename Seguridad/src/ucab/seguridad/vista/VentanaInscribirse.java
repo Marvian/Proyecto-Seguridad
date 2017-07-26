@@ -19,8 +19,7 @@ import ucab.seguridad.controlador.*;
 import ucab.seguridad.modelo.*;
 
 /**
- *
- * @author Marvian
+ *Se agrega el captcha al label con la funcion Captcha
  */
 public class VentanaInscribirse extends JFrame {
 	

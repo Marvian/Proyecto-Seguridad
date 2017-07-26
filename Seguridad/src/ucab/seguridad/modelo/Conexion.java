@@ -11,8 +11,8 @@ import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 
 /**
- *
- * @author marvian
+ *Conexion del lado del cliente para generar el canal seguro con SSLSocket
+ * 
  */
 public class Conexion {
     public SSLSocket sslSocket;

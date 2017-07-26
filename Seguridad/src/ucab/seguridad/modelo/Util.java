@@ -17,8 +17,7 @@ import java.util.logging.Logger;
 import javax.net.ssl.SSLSocket;
 
 /**
- *
- * @author zedin
+ *Clase Util realiza la peticion para el registro.
  */
 public class Util {
     public static void startClientWorking(final SSLSocket socket, Mensaje mensaje) throws ClassNotFoundException{
