@@ -81,11 +81,11 @@ public class GenerarCertificado {
 	Mensaje envio = new Mensaje();
 	int total = 0;
 	try {
-            archivo = new File (miDir.getCanonicalPath()+"/"+nombreCertificado+".jks");
+            archivo = new File (miDir.getCanonicalPath()+"/"+nombreCertificado+".crt");
             @SuppressWarnings("resource")
             FileInputStream fis = new FileInputStream(archivo);
             FileInputStream fisDos = new FileInputStream(archivo);
-            System.out.println("Direccion del archivo: " +miDir.getCanonicalPath()+"/"+nombreCertificado+".jks");
+            System.out.println("Direccion del archivo: " +miDir.getCanonicalPath()+"/"+nombreCertificado+".crt");
             System.out.println("Lo que puedo cargar" +envio.getContenidoFichero());
             int contador = 0;
             while (!envio.isBytesFinales()){

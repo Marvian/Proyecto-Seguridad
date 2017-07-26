@@ -104,24 +104,28 @@ public class Util {
                 }
                
                 if(mensaje.getOpcion() == 2){
-                    Usuario usuario = new Usuario();
+                    Mensaje usuario = new Mensaje();
                     usuario = BuscaUsuario.buscarUsuario(mensaje.getUsuario());
-                    if (usuario != null){
+                    if ( usuario.getOpcion() == 1 ){
                             Mensaje respuesta = new Mensaje();
-                            respuesta.setUsuario(usuario);
+                            respuesta.setUsuario(usuario.getUsuario());
                             oos.writeObject(respuesta);
                                     oos.flush();
                     }
-                    if (usuario == null){
-                        
+                    if (usuario.getOpcion() == 2){
+                        BuscaUsuario.buscarUsuarioEdita(mensaje.getUsuario());
+                        Usuario user = new Usuario("no", "no", "no");
                         Mensaje respuesta = new Mensaje();
                         respuesta.setOpcion(400);
+                        respuesta.setUsuario(user);
                         oos.writeObject(respuesta);
                         oos.flush();
                     }
-                    if (usuario.getDireccionIP() == "INVALIDO"){
+                    if (usuario.getOpcion() == 3){
                         BuscaUsuario.buscarUsuarioEdita(mensaje.getUsuario());
                         Mensaje respuesta = new Mensaje();
+                        Usuario user = new Usuario("no", "no", "no");
+                        respuesta.setUsuario(user);
                         respuesta.setOpcion(400);
                         oos.writeObject(respuesta);
                         oos.flush();
@@ -132,7 +136,7 @@ public class Util {
                     if ( i == GenerarCertificado.generarClave( mensaje.getCertificado() ) ){
                         if ( i == GenerarCertificado.generarPeticion() ){
                             if ( i == GenerarCertificado.firmarPeticion() ){
-                                String nombreCertificado = "certificadoCliente";
+                                String nombreCertificado = "peticionCliente";
                                 GenerarCertificado.enviarCertificado(nombreCertificado, oos);
                             }
                         }
