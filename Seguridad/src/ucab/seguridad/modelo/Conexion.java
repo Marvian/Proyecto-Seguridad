@@ -15,14 +15,16 @@ import javax.net.ssl.SSLSocketFactory;
  * @author marvian
  */
 public class Conexion {
-    private SSLSocket sslSocket;
-    public Conexion(String server, int port) throws IOException{
+    public SSLSocket sslSocket;
+    public Mensaje mensajeRec;
+    public Conexion(String server, int port, Mensaje mensaje) throws IOException, ClassNotFoundException{
         SSLSocketFactory clientFactory = (SSLSocketFactory) SSLSocketFactory
             .getDefault();
         sslSocket = (SSLSocket) clientFactory.createSocket(server, port);
+        this.mensajeRec = mensaje;
         start();
     }
-    public void start(){
-        Util.startClientWorking(sslSocket);
+    public void start() throws ClassNotFoundException{
+        Util.startClientWorking(sslSocket, mensajeRec);
     }
 }

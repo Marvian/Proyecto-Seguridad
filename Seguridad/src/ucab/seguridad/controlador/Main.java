@@ -29,7 +29,7 @@ public class Main {
                System.setProperty("javax.net.ssl.trustStore", "CosasKeytool/cacerts.jks");
                System.setProperty("javax.net.ssl.trustStorePassword", "123456");
                
-               Conexion conex = new Conexion("localhost" , 10999);
+               
 
 		try {
 			   UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());

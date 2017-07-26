@@ -56,6 +56,7 @@ public class ControladorVentanaInscribirse implements ActionListener   {
 				Mensaje mensaje = new Mensaje();
                                 mensaje.setOpcion(1);
 				mensaje.setUsuario(usuario); 
+                                System.out.println("ANTES DE PETICION CLIENTE");
                                 if(Peticiones.peticionSimple(mensaje).equals("ok")){
                                     JOptionPane.showMessageDialog(null, "Felicidades!. Su usuario ha sido registrado correctamente.", "Correcto!", JOptionPane.INFORMATION_MESSAGE);
                                     ventanaCertificado = new VentanaCertificado();

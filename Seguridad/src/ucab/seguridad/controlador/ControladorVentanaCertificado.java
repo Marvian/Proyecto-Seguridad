@@ -35,7 +35,14 @@ public class ControladorVentanaCertificado implements ActionListener {
 		// TODO Auto-generated method stub
 		
 		if(e.getSource() == ventanaCertificado.btnEnviar){
-		
+                    
+                    Certificado Certificado = new Certificado (ventanaCertificado.txtPais.getText(),
+                    ventanaCertificado.txtEstado.getText(), ventanaCertificado.txtLocalidad.getText(),
+                    ventanaCertificado.txtOrganizacion.getText(), ventanaCertificado.txtOrganizational.getText(),
+                    ventanaCertificado.txtCommonName.getText(), ventanaCertificado.txtCorreo.getText());
+                    Mensaje mensaje = new Mensaje();
+                    mensaje.setOpcion(3);
+                    mensaje.setCertificado(Certificado);
 
 		}
 		
