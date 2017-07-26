@@ -69,23 +69,31 @@ public class ControladorVentanaPrincipal implements ActionListener {
                             Mensaje mensaje = new Mensaje();
                             mensaje.setUsuario(usuario);
                             mensaje.setOpcion(2);
+                            Mensaje mensajeC = new Mensaje();
+                            Usuario usuarioC = new Usuario();
                             try {
                             System.out.println("ANTES DE LA PETICION LOGIN");
                             
-                            usuario = Peticiones.peticionUsuario(mensaje);
+                            mensajeC = Peticiones.peticionUsuario(mensaje);
+                            usuarioC =  mensajeC.getUsuario();
+                            System.out.println(mensajeC.getUsuario());
+                            
+                            if((usuarioC.getUsuario().equals(ventanaPrincipal.txtNombre.getText()))){
+				
+                                ventanaCertificado = new VentanaCertificado();
+                                ventanaCertificado.mostrarVentana();
+                                controladorVentanaCertificado = new ControladorVentanaCertificado(ventanaCertificado);
+                                ventanaCertificado.setControlador(controladorVentanaCertificado);
+                                ventanaPrincipal.dispose();
+                            
+                            }
+                            
                         }
                         catch ( Exception exq){
                             JOptionPane.showMessageDialog(null,"No existe el ese usuario!");
                         }
-			if(usuario.getUsuario().equals(ventanaPrincipal.txtNombre.getText())){
-				
-                            ventanaCertificado = new VentanaCertificado();
-                            ventanaCertificado.mostrarVentana();
-                            controladorVentanaCertificado = new ControladorVentanaCertificado(ventanaCertificado);
-                            ventanaCertificado.setControlador(controladorVentanaCertificado);
-                            ventanaPrincipal.dispose();
-                            
-                        }
+			
+                        
                     }
                     else JOptionPane.showMessageDialog(null,"Captcha equivocado!");
                     

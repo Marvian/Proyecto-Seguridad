@@ -44,7 +44,7 @@ public class Peticiones {
 			}
 	}
     
-    public static Usuario peticionUsuario(Mensaje mensaje){
+    public static Mensaje peticionUsuario(Mensaje mensaje){
 try{
 			                 System.out.println("HOLIS, ANTES DE HACER LA PETICION");
 			//SSLSocket socket = new SSLSocket("localhost", 10999) {};
@@ -77,12 +77,14 @@ try{
 			Mensaje recibido = (Mensaje) ois.readObject();
 			int i = 3;
 			if (recibido.getOpcion() == 400){
+                             System.out.println("del servidor" + recibido.getUsuario().getUsuario());
                             JOptionPane.showMessageDialog(null,"Contraseña Erronea, le quedan"+ i-- + "intentos");
                             
                         }
 			oos.close();
 			ois.close();    
-			return mensaje.getUsuario();
+                        System.out.println("del servidor" + recibido.getUsuario().getUsuario());
+			return recibido;
 		}
 			catch(Exception e1){
 				return null;
