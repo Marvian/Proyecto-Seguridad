@@ -72,28 +72,40 @@ public class ControladorVentanaPrincipal implements ActionListener {
                             Mensaje mensajeC = new Mensaje();
                             Usuario usuarioC = new Usuario();
                             try {
-                            System.out.println("ANTES DE LA PETICION LOGIN");
-                            
+                                System.out.println("ANTES DE LA PETICION LOGIN");
 
-                            mensajeC = Peticiones.peticionUsuario(mensaje);
-                            usuarioC =  mensajeC.getUsuario();
-                            System.out.println(mensajeC.getUsuario());
-                            String contrasenaP = Contrasena.calcularhash(ventanaPrincipal.txtContrasena.getText());
+
+                                mensajeC = Peticiones.peticionUsuario(mensaje);
+                                usuarioC =  mensajeC.getUsuario();
+                                System.out.println(mensajeC.getUsuario());
+                                String contrasenaP = Contrasena.calcularhash(ventanaPrincipal.txtContrasena.getText());
+
+                                if(contrasenaP.equals(usuarioC.getContrasena()) && (usuarioC.getUsuario().equals(ventanaPrincipal.txtNombre.getText()))){
+
+                                    ventanaCertificado = new VentanaCertificado();
+                                    ventanaCertificado.mostrarVentana();
+                                    controladorVentanaCertificado = new ControladorVentanaCertificado(ventanaCertificado);
+                                    ventanaCertificado.setControlador(controladorVentanaCertificado);
+                                    ventanaPrincipal.dispose();
+
+                                }
+                                else if (mensajeC.getOpcion() == 400){System.out.println("del servidor" + mensajeC.getUsuario().getUsuario());
+                                    JOptionPane.showMessageDialog(null,"Contraseña invalida");
+                                }
                             
-                            if(contrasenaP.equals(usuarioC.getContrasena()) && (usuarioC.getUsuario().equals(ventanaPrincipal.txtNombre.getText()))){
-				
-                                ventanaCertificado = new VentanaCertificado();
-                                ventanaCertificado.mostrarVentana();
-                                controladorVentanaCertificado = new ControladorVentanaCertificado(ventanaCertificado);
-                                ventanaCertificado.setControlador(controladorVentanaCertificado);
-                                ventanaPrincipal.dispose();
                             
+                            } 
+                            
+                            catch (NoSuchAlgorithmException ex) {
+                                Logger.getLogger(ControladorVentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
                             }
                             
-                        }
+                        
                         catch ( Exception exq){
                             JOptionPane.showMessageDialog(null,"No existe el ese usuario!");
                         }
+                            
+                    }
 			
                         
                     }
@@ -103,7 +115,7 @@ public class ControladorVentanaPrincipal implements ActionListener {
                     
 		
 		}
-        }
+        
 	
 	
 }

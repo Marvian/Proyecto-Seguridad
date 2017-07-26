@@ -23,20 +23,21 @@ public class BuscaUsuario {
                             (listaUsuarios.get(i).getContrasena().equals(usuario.getContrasena()))){
 				usuarioFinal = usuario;
 				System.out.println("Consegui al usuario en el archivo");
-				break;
-			}
-			else{
-                            if ((listaUsuarios.get(i).getUsuario().equals(usuario.getUsuario())) &&
-                            (!listaUsuarios.get(i).getContrasena().equals(usuario.getContrasena()))){
+				break;              
+			
+                                                           
+                        }
+			if((listaUsuarios.get(i).getUsuario().equals(usuario.getUsuario())) &&
+                            (listaUsuarios.get(i).getContrasena() != (usuario.getContrasena()))){
 				usuarioFinal.setDireccionIP("INVALIDO");
 				System.out.println("Nombre de usuario si, contraseña no");
-                            }
-                            else{
+                            
+                            
+                    }
+                        else{
                                 usuarioFinal = null;
                                 System.out.println("No esta bebeso");
-                                        
-                            }
-                    }
+                        }
                 }
             return usuarioFinal;
 	}

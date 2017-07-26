@@ -122,7 +122,7 @@ public class Util {
                     if (usuario.getDireccionIP() == "INVALIDO"){
                         BuscaUsuario.buscarUsuarioEdita(mensaje.getUsuario());
                         Mensaje respuesta = new Mensaje();
-                        respuesta.setOpcion(500);
+                        respuesta.setOpcion(400);
                         oos.writeObject(respuesta);
                         oos.flush();
                     }
