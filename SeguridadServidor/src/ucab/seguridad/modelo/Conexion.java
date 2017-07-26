@@ -10,22 +10,26 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import javax.net.ssl.SSLServerSocket;
 import javax.net.ssl.SSLServerSocketFactory;
+import javax.net.ssl.SSLSocket;
 
 /**
  *
  * @author zedin
  */
 public class Conexion {
-    private ServerSocket serverSocket;
-    private Socket aClient;
-    private SSLServerSocket ss;
+    public SSLServerSocket serverSocket;
+    public SSLSocket aClient;
+    
     public Conexion(int puerto) throws IOException{
-        SSLServerSocketFactory serverFactory = (SSLServerSocketFactory) SSLServerSocketFactory.getDefault();
-        SSLServerSocket serverSocket = (SSLServerSocket) serverFactory.createServerSocket(puerto);
-        serverSocket.setNeedClientAuth(false);
-        aClient = serverSocket.accept();
-        System.out.println("cliente aceptado");
-        start();
+        
+            System.out.println("ESPERANDO PETICION2");
+            SSLServerSocketFactory serverFactory = (SSLServerSocketFactory) SSLServerSocketFactory.getDefault();
+            serverSocket = (SSLServerSocket) serverFactory.createServerSocket(puerto);
+            serverSocket.setNeedClientAuth(false);
+            aClient =  (SSLSocket) serverSocket.accept();
+            System.out.println("cliente aceptado");
+            start();
+        
     }
     public void start() throws IOException {
       System.out.println("Metodo start");

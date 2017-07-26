@@ -60,15 +60,23 @@ public class ControladorVentanaPrincipal implements ActionListener {
                     
                         String contrasena = null;
                         try {
-                             contrasena = Contrasena.calcularhash(ventanaInscribirse.txtContrasena.getText());
+                             contrasena = Contrasena.calcularhash(ventanaPrincipal.txtContrasena.getText());
                             } catch (NoSuchAlgorithmException ex) {
                              Logger.getLogger(ControladorVentanaInscribirse.class.getName()).log(Level.SEVERE, null, ex);
                             }
-                        Usuario usuario = new Usuario(ventanaPrincipal.txtNombre.getText() , contrasena, null);
-			Mensaje mensaje = new Mensaje();
-			mensaje.setUsuario(usuario);
-			mensaje.setOpcion(2);
-			usuario = Peticiones.peticionUsuario(mensaje);
+                        
+                            Usuario usuario = new Usuario(ventanaPrincipal.txtNombre.getText() , contrasena, null);
+                            Mensaje mensaje = new Mensaje();
+                            mensaje.setUsuario(usuario);
+                            mensaje.setOpcion(2);
+                            try {
+                            System.out.println("ANTES DE LA PETICION LOGIN");
+                            
+                            usuario = Peticiones.peticionUsuario(mensaje);
+                        }
+                        catch ( Exception exq){
+                            JOptionPane.showMessageDialog(null,"No existe el ese usuario!");
+                        }
 			if(usuario.getUsuario().equals(ventanaPrincipal.txtNombre.getText())){
 				
                             ventanaCertificado = new VentanaCertificado();
@@ -78,12 +86,14 @@ public class ControladorVentanaPrincipal implements ActionListener {
                             ventanaPrincipal.dispose();
                             
                         }
-                        
                     }
-                    
                     else JOptionPane.showMessageDialog(null,"Captcha equivocado!");
+                    
+                    
+                    
 		
 		}
+        }
 	
-	}
+	
 }
