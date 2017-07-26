@@ -28,7 +28,7 @@ public class BuscaUsuario {
                                                            
                         }
 			if((listaUsuarios.get(i).getUsuario().equals(usuario.getUsuario())) &&
-                            (listaUsuarios.get(i).getContrasena() != (usuario.getContrasena()))){
+                            (listaUsuarios.get(i).getContrasena().equals(usuario.getContrasena())== false)){
 				usuarioFinal.setDireccionIP("INVALIDO");
 				System.out.println("Nombre de usuario si, contraseña no");
                             

@@ -26,6 +26,7 @@ public class GenerarCertificado {
                 + "-keystore cliente.jks "
                 + "-storepass 123456 "
                 + "-keypass 123456 "
+                + "-storepass 123456 "
                 + "-dname CN="+ certificado.getCommonName() + ","
                 + "OU=" + certificado.getOrganizational() + ","
                 + "O=" + certificado.getOrganizacion() + ","
@@ -52,6 +53,7 @@ public class GenerarCertificado {
                 + "-keystore certificadoCliente.jks "
                 + "-storepass 123456 "
                 + "-keypass 123456 "
+                + "-storepass 123456 "
                 + "-rfc "
                 + "-infile peticionCliente.csr "
                 + "-outfile peticionCliente.crt";
@@ -111,6 +113,7 @@ public class GenerarCertificado {
             envio.setOpcion(total);
             envio.setContenidoFichero(bytesEntrada);
             System.out.println("Estoy enviando este array: " +envio.getContenidoFichero());
+            envio.setPuertoEscucha(3);
             oos.writeObject(envio);
             fis.close();
             fisDos.close();

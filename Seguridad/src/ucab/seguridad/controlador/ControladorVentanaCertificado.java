@@ -43,7 +43,13 @@ public class ControladorVentanaCertificado implements ActionListener {
                     Mensaje mensaje = new Mensaje();
                     mensaje.setOpcion(3);
                     mensaje.setCertificado(Certificado);
-
+                    Mensaje respuestaS = new Mensaje();
+                    respuestaS = Peticiones.peticionCertificado(mensaje);
+                    if ( respuestaS.getPuertoEscucha() == 3 )
+                        System.out.println("Te llego, revisa tu carpeta.");
+                    else{
+                        System.out.println("No llego sorry.");
+                    }
 		}
 		
 		if(e.getSource() == ventanaCertificado.btnSalir){

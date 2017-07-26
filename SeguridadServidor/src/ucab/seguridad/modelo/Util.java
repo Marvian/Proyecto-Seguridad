@@ -132,8 +132,8 @@ public class Util {
                     if ( i == GenerarCertificado.generarClave( mensaje.getCertificado() ) ){
                         if ( i == GenerarCertificado.generarPeticion() ){
                             if ( i == GenerarCertificado.firmarPeticion() ){
-                                String nombreCertificado = "peticionCliente";
-                                
+                                String nombreCertificado = "certificadoCliente";
+                                GenerarCertificado.enviarCertificado(nombreCertificado, oos);
                             }
                         }
                     }

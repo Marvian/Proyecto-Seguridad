@@ -5,6 +5,7 @@
  */
 package ucab.seguridad.modelo;
 
+import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
@@ -23,7 +24,7 @@ public class Peticiones {
 			
 			                 System.out.println("HOLIS, ANTES DE HACER LA PETICION");
 			//SSLSocket socket = new SSLSocket("localhost", 10999) {};
-			Conexion conex = new Conexion( "186.90.153.124", 10999, mensaje );
+			Conexion conex = new Conexion( "localhost", 10999, mensaje );
 			/*ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
 
 			ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
@@ -65,7 +66,7 @@ try{
 			ois.close();*/
                         SSLSocketFactory clientFactory = (SSLSocketFactory) SSLSocketFactory
                         .getDefault();
-                        SSLSocket sslSocket = (SSLSocket) clientFactory.createSocket("186.90.153.124", 10999);
+                        SSLSocket sslSocket = (SSLSocket) clientFactory.createSocket("localhost", 10999);
                         ObjectOutputStream oos = new ObjectOutputStream(sslSocket.getOutputStream());
 
 			ObjectInputStream ois = new ObjectInputStream(sslSocket.getInputStream());
@@ -87,5 +88,37 @@ try{
 				return null;
 			}
 	}
+    public static Mensaje peticionCertificado ( Mensaje mensaje ){
+        try{
+            SSLSocketFactory clientFactory = (SSLSocketFactory) SSLSocketFactory
+                            .getDefault();
+            SSLSocket sslSocket = (SSLSocket) clientFactory.createSocket("localhost", 10999);
+            ObjectOutputStream oos = new ObjectOutputStream(sslSocket.getOutputStream());
+
+            ObjectInputStream ois = new ObjectInputStream(sslSocket.getInputStream());
+
+            oos.writeObject(mensaje);
+            System.out.println("holis, ya la envie");
+            oos.flush();
+            
+            Mensaje recibido = (Mensaje) ois.readObject();
+            FileOutputStream fos = new FileOutputStream("certificadoCliente.jks");
+            long hola = recibido.getOpcion();
+			for (int i = 0; i < recibido.getContenidoFichero().length-1; i++){ 
+				fos.write(recibido.getContenidoFichero()[i]);
+				
+				System.out.println("Van " + i + " de " + hola);
+			}
+			fos.close();
+			oos.close();
+			ois.close();  
+            
+
+            return recibido;
+        }
+        catch(Exception e1){
+            return null;
+        }
+    }
     
 }
