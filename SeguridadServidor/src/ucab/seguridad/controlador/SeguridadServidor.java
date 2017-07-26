@@ -14,8 +14,9 @@ import ucab.seguridad.modelo.Conexion;
 import ucab.seguridad.modelo.Util;
 
 /**
- *
- * @author zedin
+ * Clase principal en la que se reciben las peticiones de los usuarios y estas son
+ * enviadas hacia la clase Util.
+ * 
  */
 public class SeguridadServidor {
 

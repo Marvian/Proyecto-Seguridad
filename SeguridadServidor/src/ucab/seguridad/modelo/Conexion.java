@@ -13,13 +13,17 @@ import javax.net.ssl.SSLServerSocketFactory;
 import javax.net.ssl.SSLSocket;
 
 /**
- *
- * @author zedin
+ * Clase en la que se maneja la conexion con el cliente (no se usa por los momentos) 
+ * 
  */
 public class Conexion {
     public SSLServerSocket serverSocket;
     public SSLSocket aClient;
-    
+    /**
+     * Consrtuctor de la clase, este se encarga de inicializar la conexion
+     * @param puerto Recibe el puerto mediante el cual se establece la conexion
+     * @throws IOException  Posible excepcion
+     */
     public Conexion(int puerto) throws IOException{
         
             System.out.println("ESPERANDO PETICION2");
@@ -31,6 +35,10 @@ public class Conexion {
             start();
         
     }
+    /**
+     * Metodo que inicia el hilo del cliente.
+     * @throws IOException Posible excepcion
+     */
     public void start() throws IOException {
       System.out.println("Metodo start");
         Util.startServerWorking(serverSocket, aClient);

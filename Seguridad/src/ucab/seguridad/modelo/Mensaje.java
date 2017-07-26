@@ -8,8 +8,8 @@ package ucab.seguridad.modelo;
 import java.io.Serializable;
 
 /**
- *
- * @author marvian
+ * Clase que se utiliza para el envio de objetos entre cliente y servidor.
+ * 
  */
 public class Mensaje implements Serializable {
     
@@ -22,7 +22,15 @@ public class Mensaje implements Serializable {
     private int bytesAEnviar;
     private int[] contenidoFichero;
     private boolean bytesFinales;
-    
+    /**
+     * Constructor de clase con atributos a llenar.
+     * @param usuario recibe el objeto usuario que contiene los datos del mismo.
+     * @param certificado recibe el objeto certificado que contiene los datos del mismo.
+     * @param ipServidor recibe la ip del servidor (no se usa)
+     * @param puertoEscucha recibe el puerto de escucha (no se usa)
+     * @param opcion recibe la opcion mediante la cual el servidor entiende que debe hacer.
+     * @param respuesta recibe la respuesta dle servidor.
+     */
     public Mensaje (Usuario usuario, Certificado certificado, int ipServidor, 
             int puertoEscucha, int opcion, int respuesta ){
     
@@ -36,7 +44,10 @@ public class Mensaje implements Serializable {
         this.bytesAEnviar = 0;
         this.bytesFinales = false;
     }
-    
+    /**
+     * Constructor de clase vacio mediante el cual se inicializan los valores por
+     * defecto del objeto.
+     */
     public Mensaje(){
         this.usuario = null;
         this.certificado = null;

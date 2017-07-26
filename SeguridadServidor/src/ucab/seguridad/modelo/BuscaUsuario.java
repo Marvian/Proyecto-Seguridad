@@ -9,11 +9,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- *
- * @author zedin
+ * Clase en la que se maneja la busqueda del Usuario.
+ * 
  */
 public class BuscaUsuario {
-	
+	/**
+         * Metodo que es llamado cuando es necesario buscar la existencia de un usuario.
+         * 
+         * @param usuario Recibe el usuario que se desea buscar.
+         * @return Devuelve un objeto del tipo mensaje.
+         */
 	public static Mensaje buscarUsuario(Usuario usuario){
 		ArrayList<Usuario> listaUsuarios = new ArrayList<>();
 		listaUsuarios = leyendo();
@@ -51,12 +56,12 @@ public class BuscaUsuario {
 	
 	
 	/**
-	 * 
-	 * @param usuario
-	 * @return
-	 * 
-	 * En este modulo se maneja el registro del usuario, se recibe del formulario, se compara que no exista.
+	 *  En este modulo se maneja el registro del usuario, se recibe del formulario, se compara que no exista.
 	 * De no existir es agregado al archivo de todos los usuarios, si no, hay error y no se registra el mismo.
+	 * @param usuario Recibe el usuario que se desea verificar,
+	 * @return Devuelve un objeto del tipo usuario.
+	 * 
+	 *
 	 */
 	public static Usuario verificarUsuario(Usuario usuario){
 		ArrayList<Usuario> listaUsuarios = new ArrayList<>();
@@ -91,7 +96,11 @@ public class BuscaUsuario {
 		
 		return usuarioFinal;
 	}
-	
+	/**
+         * Metodo que se usa para agregar cantidad de intentos de ingreso fallidos
+         * en caso de que el cliente introduzca contraseñas erradas.
+         * @param usuario Recibe el usuario que coloco mal la contraseña.
+         */
 	public static void buscarUsuarioEdita(Usuario usuario){
 		ArrayList<Usuario> listaUsuarios = new ArrayList<>();
 		listaUsuarios = leyendo();
@@ -111,9 +120,8 @@ public class BuscaUsuario {
 	
 	
 	/**
-     * 
-     * @return
-     * Metodo de repetido uso en el cual se lee el Json y se obtiene una lista de los usuarios.
+     * Metodo de uso repetido para leer del archivo json de usuarios.
+     * @return Devuelve un arraylist con la lista de los usuarios.
      * 
      */
     public static ArrayList<Usuario> leyendo(){

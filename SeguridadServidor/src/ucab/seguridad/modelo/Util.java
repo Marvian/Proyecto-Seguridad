@@ -22,12 +22,21 @@ import javax.net.ssl.SSLServerSocket;
 import javax.net.ssl.SSLSocket;
 
 /**
- *
- * @author zedin
+ * Clase en la cual se maneja el flujo de informacion dependiendo de lo que
+ * pida el cliente.
+ * 
  */
 public class Util {
     static ArrayList<Usuario> usuarios = new ArrayList<>();
-    
+    /**
+     * Metodo que es llamado desde la clase principal.
+     * @param serverSocket Recibe el socket ssl del servidor.
+     * @param socket  Recibe el socket con el cual se inicializa la conexion.
+     * Opciones:
+     * 1: Registro de usuario.
+     * 2: Autenticacion de usuario.
+     * 3: Generar certificado.
+     */
     public static void startServerWorking(SSLServerSocket serverSocket, SSLSocket socket) {
         
       

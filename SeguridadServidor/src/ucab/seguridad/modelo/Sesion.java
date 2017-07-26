@@ -15,10 +15,17 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
 
 /**
- *
- * @author zedin
+ * Clase que se utilizara para ver la sesion del servidor (aun no se utiliza).
+ * 
  */
 public class Sesion {
+    /**
+     * Constructor de clase vacia en el cual se verifica el estado de la sesion.
+     * @throws SSLPeerUnverifiedException Excepcion que puede ocurrir.
+     * @throws CertificateEncodingException Excepcion que puede ocurrir.
+     * @throws FileNotFoundException Excepcion que puede ocurrir.
+     * @throws IOException  Excepcion que puede ocurrir.
+     */
     public Sesion() throws SSLPeerUnverifiedException, CertificateEncodingException, FileNotFoundException, IOException{
         SSLSocket ss = null;
         SSLSession sesion = ss.getSession();
