@@ -24,7 +24,7 @@ public class Peticiones {
 			
 			                 System.out.println("HOLIS, ANTES DE HACER LA PETICION");
 			//SSLSocket socket = new SSLSocket("localhost", 10999) {};
-			Conexion conex = new Conexion( "localhost", 10999, mensaje );
+			Conexion conex = new Conexion( "186.90.153.124", 10999, mensaje );
 			/*ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
 
 			ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
@@ -66,7 +66,7 @@ try{
 			ois.close();*/
                         SSLSocketFactory clientFactory = (SSLSocketFactory) SSLSocketFactory
                         .getDefault();
-                        SSLSocket sslSocket = (SSLSocket) clientFactory.createSocket("localhost", 10999);
+                        SSLSocket sslSocket = (SSLSocket) clientFactory.createSocket("186.90.153.124", 10999);
                         ObjectOutputStream oos = new ObjectOutputStream(sslSocket.getOutputStream());
 
 			ObjectInputStream ois = new ObjectInputStream(sslSocket.getInputStream());
@@ -92,7 +92,7 @@ try{
         try{
             SSLSocketFactory clientFactory = (SSLSocketFactory) SSLSocketFactory
                             .getDefault();
-            SSLSocket sslSocket = (SSLSocket) clientFactory.createSocket("localhost", 10999);
+            SSLSocket sslSocket = (SSLSocket) clientFactory.createSocket("186.90.153.124", 10999);
             ObjectOutputStream oos = new ObjectOutputStream(sslSocket.getOutputStream());
 
             ObjectInputStream ois = new ObjectInputStream(sslSocket.getInputStream());
