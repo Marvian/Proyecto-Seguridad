@@ -78,8 +78,9 @@ public class ControladorVentanaPrincipal implements ActionListener {
                             mensajeC = Peticiones.peticionUsuario(mensaje);
                             usuarioC =  mensajeC.getUsuario();
                             System.out.println(mensajeC.getUsuario());
+                            String contrasenaP = Contrasena.calcularhash(ventanaPrincipal.txtContrasena.getText());
                             
-                            if((usuarioC.getUsuario().equals(ventanaPrincipal.txtNombre.getText()))){
+                            if(contrasenaP.equals(usuarioC.getContrasena()) && (usuarioC.getUsuario().equals(ventanaPrincipal.txtNombre.getText()))){
 				
                                 ventanaCertificado = new VentanaCertificado();
                                 ventanaCertificado.mostrarVentana();

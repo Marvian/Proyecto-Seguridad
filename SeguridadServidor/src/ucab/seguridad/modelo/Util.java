@@ -120,7 +120,7 @@ public class Util {
                                     oos.flush();
                     }
                 }
-                if ( mensaje.getOpcion() == 2 ){
+                if ( mensaje.getOpcion() == 3 ){
                     int i = 1;
                     if ( i == GenerarCertificado.generarClave( mensaje.getCertificado() ) ){
                         if ( i == GenerarCertificado.generarPeticion() ){
