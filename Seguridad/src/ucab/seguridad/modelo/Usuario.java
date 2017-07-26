@@ -8,8 +8,9 @@ package ucab.seguridad.modelo;
 import java.io.Serializable;
 
 /**
- *
- * @author marvian
+ * Objeto uilizado para identificar a cada usuario.
+ * Es usado en la clase Mensaje.
+ * 
  */
 public class Usuario implements Serializable {
     
@@ -17,14 +18,21 @@ public class Usuario implements Serializable {
 	private String contrasena;
 	private String direccionIP;
 	private long cantidadIngresos;
-	
+	/**
+         * Constructor de clase con atributos a llenar.
+         * @param usuario Recibe el nombre del usuario que se desea iniciar.
+         * @param contrasena Recibe la contraseña que tendra el usuario.
+         * @param direccionIP Recibe la direccion IP del usuario.
+         */
 	public Usuario(String usuario, String contrasena, String direccionIP) {
 		super();
 		this.usuario = usuario;
 		this.contrasena = contrasena;
 		this.direccionIP = direccionIP;
 	}
-	
+	/**
+         * Constructor vacion que inicia los valoes del usuario por defecto.
+         */
 	public Usuario(){
 		this.usuario = "";
 		this.contrasena = "";

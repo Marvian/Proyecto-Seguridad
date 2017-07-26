@@ -14,10 +14,16 @@ import java.util.logging.Logger;
 import sun.security.tools.keytool.Main;
 
 /**
- *
- * @author zedin
+ * Clase en la cual se maneja la creacion y envio de certificados al cliente.
+ * 
  */
 public class GenerarCertificado {
+    /**
+     * Metodo en el cual se genera la clave para el cliente.
+     * @param certificado Recibe los datos con los que el cliente desea generar su
+     * certificado.
+     * @return Devuelve un numero entero con el cual se compara en la clase Util (opcion 3)
+     */
     public static int generarClave( Certificado certificado ){
         String comando = "-genkey "
                 + "-alias claveCliente "
@@ -37,6 +43,11 @@ public class GenerarCertificado {
         
         return 1;
     }
+    /**
+     * Metodo con el que se genera la peticion (archivo .csr) para crear el certificado 
+     * del cliente
+     * @return Devuelve un numero entero con el cual se compara en la clase Util (opcion 3).
+     */
     public static int generarPeticion (){
         String comando = "-certreq "
                 + "-alias claveCliente "
@@ -47,6 +58,10 @@ public class GenerarCertificado {
         execute(comando);
         return 1;
     }
+    /**
+     * Metodo en el cual se genera el certificado al cliente.
+     * @return Devuelve un numero entero con el cual se compara en la clase Util (opcion 3)
+     */
     public static int firmarPeticion(){
         String comando = "-gencert "
                 + "-alias cliente "
@@ -60,6 +75,11 @@ public class GenerarCertificado {
         execute(comando);
         return 1;
     }
+    /**
+     * Metodo que ejecuta los comandos en tiempo de ejecucion
+     * @param comando recibe el string que se va a ejecutar
+     * @return Devuelve un booleano con el cual se compara en la clase Util (opcion 3)
+     */
     public static boolean execute(String comando){
         try {
             System.out.println(comando);
@@ -75,6 +95,11 @@ public class GenerarCertificado {
         }
         return true;
     }
+    /**
+     * Metodo mediante el cual el servidor envia el certificado generado al cliente.
+     * @param nombreCertificado Recibe el nombre del certificado a enviar.
+     * @param oos Recibe el stream que se usa para enviar el objeto con el certificado.
+     */
     public static void enviarCertificado( String nombreCertificado , ObjectOutputStream oos ){
         File archivo = null;
 	File miDir = new File (".");

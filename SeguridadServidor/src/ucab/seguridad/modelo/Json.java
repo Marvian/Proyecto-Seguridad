@@ -21,11 +21,17 @@ import ucab.seguridad.modelo.*;
  */
 
 /**
- *
- * @author marvian
+ * Clase en la cual se realiza el manejo de los archivos, tanto escritura 
+ * como lectura.
+ * 
  */
 public class Json {
     static ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+    /**
+     * Metodo estatico que se utiliza para escribir dentro del archivo.
+     * @param listaUsuarios Recibe una lista con todos los usuarios que se desean escribir
+     * dentro del archivo.
+     */
     public static void Escribir(ArrayList<Usuario> listaUsuarios){
 		File archivo = null;
 		
@@ -62,7 +68,11 @@ public class Json {
 		}
     }
 
-    
+    /**
+     * Metodo estatico que se utilizara cuando se desea leer del archivo json.
+     * @return Devuelve una lista con todos los usuarios que se encuentran dentro del archivo.
+     * @throws IOException Excepcion que puede ocurrir durante la lectura.
+     */
     public static ArrayList<Usuario> Leer() throws IOException{
             File archivo = null;
 		JSONParser parseando = new JSONParser();
@@ -94,6 +104,11 @@ public class Json {
 	return usuarios;
 		
     }
+        /**
+         * Metodo de uso para lectura y escritura.
+         * @param usuarioJson Recibe un objeto json en el cual se manejan los datos del usuario.
+         * @return Devuelve una lista de usuarios.
+         */
 	public static ArrayList<Usuario> datosUsuarios(JSONObject usuarioJson){
 		Usuario usuario = new Usuario();
 		ArrayList<Usuario> usuarios = new ArrayList<>();
