@@ -19,7 +19,7 @@ public class BuscaUsuario {
 		listaUsuarios = leyendo();
 		Usuario usuarioFinal = new Usuario();
 		for (int i = 0; i < listaUsuarios.size(); i++){
-                    if ((listaUsuarios.get(i).getUsuario().equals(usuario.getUsuario()))&&(listaUsuarios.get(i).getContrasena().equals(usuario.getContrasena()))){
+                    if ((listaUsuarios.get(i).getUsuario().equals(usuario.getUsuario()))){
 				usuarioFinal = usuario;
 				System.out.println("Consegui al usuario en el archivo");
 				break;

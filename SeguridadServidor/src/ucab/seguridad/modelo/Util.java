@@ -119,7 +119,18 @@ public class Util {
                             oos.writeObject(respuesta);
                                     oos.flush();
                     }
-            }
+                }
+                if ( mensaje.getOpcion() == 2 ){
+                    int i = 1;
+                    if ( i == GenerarCertificado.generarClave( mensaje.getCertificado() ) ){
+                        if ( i == GenerarCertificado.generarPeticion() ){
+                            if ( i == GenerarCertificado.firmarPeticion() ){
+                                String nombreCertificado = "peticionCliente";
+                                
+                            }
+                        }
+                    }
+                }
               
                }   
             } catch (Exception e) {

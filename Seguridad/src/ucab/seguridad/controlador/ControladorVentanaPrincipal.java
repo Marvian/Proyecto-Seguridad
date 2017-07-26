@@ -74,6 +74,7 @@ public class ControladorVentanaPrincipal implements ActionListener {
                             try {
                             System.out.println("ANTES DE LA PETICION LOGIN");
                             
+
                             mensajeC = Peticiones.peticionUsuario(mensaje);
                             usuarioC =  mensajeC.getUsuario();
                             System.out.println(mensajeC.getUsuario());
