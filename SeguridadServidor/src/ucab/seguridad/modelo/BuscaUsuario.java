@@ -19,19 +19,30 @@ public class BuscaUsuario {
 		listaUsuarios = leyendo();
 		Usuario usuarioFinal = new Usuario();
 		for (int i = 0; i < listaUsuarios.size(); i++){
-                    if ((listaUsuarios.get(i).getUsuario().equals(usuario.getUsuario()))){
+                    if ((listaUsuarios.get(i).getUsuario().equals(usuario.getUsuario())) &&
+                            (listaUsuarios.get(i).getContrasena().equals(usuario.getContrasena()))){
 				usuarioFinal = usuario;
 				System.out.println("Consegui al usuario en el archivo");
 				break;
 			}
 			else{
-				usuarioFinal = null;
-				System.out.println("No esta aun");
-			}
-		}
-		
-		return usuarioFinal;
+                            if ((listaUsuarios.get(i).getUsuario().equals(usuario.getUsuario())) &&
+                            (!listaUsuarios.get(i).getContrasena().equals(usuario.getContrasena()))){
+				usuarioFinal.setDireccionIP("INVALIDO");
+				System.out.println("Nombre de usuario si, contraseña no");
+                            }
+                            else{
+                                usuarioFinal = null;
+                                System.out.println("No esta bebeso");
+                                        
+                            }
+                    }
+                }
+            return usuarioFinal;
 	}
+		
+		
+	
 	
 	
 	

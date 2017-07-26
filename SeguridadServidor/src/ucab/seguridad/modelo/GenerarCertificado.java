@@ -73,17 +73,17 @@ public class GenerarCertificado {
         }
         return true;
     }
-    public boolean enviarCertificado( String nombreCertificado , ObjectOutputStream oos ){
+    public static void enviarCertificado( String nombreCertificado , ObjectOutputStream oos ){
         File archivo = null;
 	File miDir = new File (".");
 	Mensaje envio = new Mensaje();
 	int total = 0;
 	try {
-            archivo = new File (miDir.getCanonicalPath()+"/"+nombreCertificado+".pdf");
+            archivo = new File (miDir.getCanonicalPath()+"/"+nombreCertificado+".jks");
             @SuppressWarnings("resource")
             FileInputStream fis = new FileInputStream(archivo);
             FileInputStream fisDos = new FileInputStream(archivo);
-            System.out.println("Direccion del archivo: " +miDir.getCanonicalPath()+"/"+nombreCertificado+".pdf");
+            System.out.println("Direccion del archivo: " +miDir.getCanonicalPath()+"/"+nombreCertificado+".jks");
             System.out.println("Lo que puedo cargar" +envio.getContenidoFichero());
             int contador = 0;
             while (!envio.isBytesFinales()){
@@ -120,7 +120,6 @@ public class GenerarCertificado {
 	// TODO Auto-generated catch block
 	e.printStackTrace();
 	}
-    return true;
     }
     
 }

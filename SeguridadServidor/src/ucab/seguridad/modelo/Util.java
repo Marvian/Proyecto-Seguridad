@@ -113,11 +113,18 @@ public class Util {
                                     oos.flush();
                     }
                     if (usuario == null){
+                        
+                        Mensaje respuesta = new Mensaje();
+                        respuesta.setOpcion(400);
+                        oos.writeObject(respuesta);
+                        oos.flush();
+                    }
+                    if (usuario.getDireccionIP() == "INVALIDO"){
                         BuscaUsuario.buscarUsuarioEdita(mensaje.getUsuario());
                         Mensaje respuesta = new Mensaje();
-                            respuesta.setOpcion(400);
-                            oos.writeObject(respuesta);
-                                    oos.flush();
+                        respuesta.setOpcion(500);
+                        oos.writeObject(respuesta);
+                        oos.flush();
                     }
                 }
                 if ( mensaje.getOpcion() == 3 ){
