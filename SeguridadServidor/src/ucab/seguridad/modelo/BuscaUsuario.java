@@ -14,32 +14,35 @@ import java.util.ArrayList;
  */
 public class BuscaUsuario {
 	
-	public static Usuario buscarUsuario(Usuario usuario){
+	public static Mensaje buscarUsuario(Usuario usuario){
 		ArrayList<Usuario> listaUsuarios = new ArrayList<>();
 		listaUsuarios = leyendo();
+                Mensaje respuestaBusqueda = new Mensaje();
 		Usuario usuarioFinal = new Usuario();
 		for (int i = 0; i < listaUsuarios.size(); i++){
                     if ((listaUsuarios.get(i).getUsuario().equals(usuario.getUsuario())) &&
                             (listaUsuarios.get(i).getContrasena().equals(usuario.getContrasena()))){
 				usuarioFinal = usuario;
+                                respuestaBusqueda.setOpcion(1);
 				System.out.println("Consegui al usuario en el archivo");
 				break;              
 			
                                                            
                         }
 			if((listaUsuarios.get(i).getUsuario().equals(usuario.getUsuario())) &&
-                            (listaUsuarios.get(i).getContrasena().equals(usuario.getContrasena())== false)){
+                            (listaUsuarios.get(i).getContrasena() != (usuario.getContrasena()))){
 				usuarioFinal.setDireccionIP("INVALIDO");
 				System.out.println("Nombre de usuario si, contraseña no");
-                            
-                            
-                    }
-                        else{
-                                usuarioFinal = null;
-                                System.out.println("No esta bebeso");
+                                respuestaBusqueda.setOpcion(2);
                         }
+                        else{
+                            respuestaBusqueda.setOpcion(3);
+                        }
+                       
                 }
-            return usuarioFinal;
+                
+                respuestaBusqueda.setUsuario(usuarioFinal);
+            return respuestaBusqueda;
 	}
 		
 		

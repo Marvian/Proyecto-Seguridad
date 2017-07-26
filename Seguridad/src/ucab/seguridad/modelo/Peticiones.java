@@ -74,7 +74,7 @@ try{
 			oos.writeObject(mensaje);
                         System.out.println("holis, ya la envie");
 			oos.flush();
-
+                                
 			Mensaje recibido = (Mensaje) ois.readObject();
 			
 			
@@ -102,7 +102,7 @@ try{
             oos.flush();
             
             Mensaje recibido = (Mensaje) ois.readObject();
-            FileOutputStream fos = new FileOutputStream("certificadoCliente.jks");
+            FileOutputStream fos = new FileOutputStream("certificadoCliente.crt");
             long hola = recibido.getOpcion();
 			for (int i = 0; i < recibido.getContenidoFichero().length-1; i++){ 
 				fos.write(recibido.getContenidoFichero()[i]);
