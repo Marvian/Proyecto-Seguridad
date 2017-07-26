@@ -73,6 +73,7 @@ public class ControladorVentanaPrincipal implements ActionListener {
                             System.out.println("ANTES DE LA PETICION LOGIN");
                             
                             usuario = Peticiones.peticionUsuario(mensaje);
+                                System.out.println("User " + usuario.getUsuario());
                         }
                         catch ( Exception exq){
                             JOptionPane.showMessageDialog(null,"No existe el ese usuario!");

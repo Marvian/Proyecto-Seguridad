@@ -19,6 +19,9 @@ public class Mensaje implements Serializable {
     private int puertoEscucha;
     private int opcion;
     private int respuesta;
+    private int bytesAEnviar;
+    private int[] contenidoFichero;
+    private boolean bytesFinales;
     
     public Mensaje (Usuario usuario, Certificado certificado, int ipServidor, 
             int puertoEscucha, int opcion, int respuesta ){
@@ -30,15 +33,19 @@ public class Mensaje implements Serializable {
         this.puertoEscucha = puertoEscucha;
         this.opcion = opcion;
         this.respuesta = respuesta;
+        this.bytesAEnviar = 0;
+        this.bytesFinales = false;
     }
     
     public Mensaje(){
-        usuario = null;
-        certificado = null;
-        ipServidor = -1;
-        puertoEscucha = -1;
-        opcion = -1;
-        respuesta = -1;
+        this.usuario = null;
+        this.certificado = null;
+        this.ipServidor = -1;
+        this.puertoEscucha = -1;
+        this.opcion = -1;
+        this.respuesta = -1;
+        this.bytesAEnviar = 0;
+        this.bytesFinales = false;
     }
 
     public Usuario getUsuario() {
@@ -79,6 +86,48 @@ public class Mensaje implements Serializable {
 
     public void setOpcion(int opcion) {
         this.opcion = opcion;
+    }
+
+    /**
+     * @return the bytesAEnviar
+     */
+    public int getBytesAEnviar() {
+        return bytesAEnviar;
+    }
+
+    /**
+     * @param bytesAEnviar the bytesAEnviar to set
+     */
+    public void setBytesAEnviar(int bytesAEnviar) {
+        this.bytesAEnviar = bytesAEnviar;
+    }
+
+    /**
+     * @return the contenidoFichero
+     */
+    public int[] getContenidoFichero() {
+        return contenidoFichero;
+    }
+
+    /**
+     * @param contenidoFichero the contenidoFichero to set
+     */
+    public void setContenidoFichero(int[] contenidoFichero) {
+        this.contenidoFichero = contenidoFichero;
+    }
+
+    /**
+     * @return the bytesFinales
+     */
+    public boolean isBytesFinales() {
+        return bytesFinales;
+    }
+
+    /**
+     * @param bytesFinales the bytesFinales to set
+     */
+    public void setBytesFinales(boolean bytesFinales) {
+        this.bytesFinales = bytesFinales;
     }
     
     

@@ -44,7 +44,7 @@ public class Peticiones {
 			}
 	}
     
-    public static Usuario peticionUsuario(Mensaje mensaje){
+    public static Mensaje peticionUsuario(Mensaje mensaje){
 try{
 			                 System.out.println("HOLIS, ANTES DE HACER LA PETICION");
 			//SSLSocket socket = new SSLSocket("localhost", 10999) {};
@@ -82,7 +82,7 @@ try{
                         }
 			oos.close();
 			ois.close();    
-			return mensaje.getUsuario();
+			return recibido;
 		}
 			catch(Exception e1){
 				return null;
